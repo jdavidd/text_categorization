@@ -2,7 +2,7 @@
 from typing import Dict, Optional
 from fastapi import FastAPI
 from pydantic import BaseModel, BaseSettings
-from model_class import model
+from categorization.model_class import model
 
 
 class Settings(BaseSettings):

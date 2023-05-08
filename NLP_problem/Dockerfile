@@ -5,6 +5,7 @@ WORKDIR /code
 COPY ./requirements.txt /code/requirements.txt
 
 ENV PYTHONPATH /code
+
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY ./categorization /code/categorization

@@ -1,1 +1,1 @@
-from model_class.model import *
+from categorization.model_class.model import *
