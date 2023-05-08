@@ -6,9 +6,9 @@ from model_class import model
 
 
 class Settings(BaseSettings):
-    path_to_model: str = '/Users/jitcad/Documents/NLP_problem/files/model_trained'
-    path_to_categories: str = '/Users/jitcad/Documents/NLP_problem/files/categories.pkl'
-    path_to_vectorizer: str = '/Users/jitcad/Documents/NLP_problem/files/vectorizer.pkl'
+    path_to_model: str = '../categorization/files/model_trained'
+    path_to_categories: str = '../categorization/files/categories.pkl'
+    path_to_vectorizer: str = '../categorization/files/vectorizer.pkl'
 
 class NewsArticle(BaseModel):
     text: str

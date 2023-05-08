@@ -1,5 +1,5 @@
 
-from multilabel_knn import multilabel_knn, binom_multilabel_kNN, evaluation
+# from multilabel_knn import multilabel_knn, binom_multilabel_kNN, evaluation
 import joblib
 from sklearn.metrics import hamming_loss
 import pickle
@@ -21,8 +21,7 @@ class ModelCategorization:
         self.instantiate_model()
     
     def instantiate_model(self):
-        self.model = joblib.load('/Users/jitcad/Documents/NLP_problem/files/model_trained')
-
+        self.model = joblib.load(self.path_to_model)
         self.categories = pickle.load(open(self.path_to_categories, 'rb'))
         self.vectorizer = joblib.load(self.path_to_vectorizer)
 
@@ -88,9 +87,10 @@ class ModelCategorization:
         pred = self.infer_text(text)
         top_5 = np.flip(np.argsort(pred))[:5]
         # print(top_5)
+        probs = [pred[i] for i in top_5]
         res_categories = self.get_categories_with_idx(top_5)
     
-        return res_categories
+        return dict(zip(res_categories, probs))
 
     def infer_text(self, text):
         """Infere text with model
@@ -129,7 +129,7 @@ class ModelCategorization:
 # train_X = pickle.load(open('train_X.pkl', 'rb'))
 # train_Y = pickle.load(open('train_Y.pkl', 'rb'))
 
-model = Model('/Users/jitcad/Documents/NLP_problem/files/model_trained', '/Users/jitcad/Documents/NLP_problem/files/categories.pkl', '/Users/jitcad/Documents/NLP_problem/files/vectorizer.pkl')
-with open('/Users/jitcad/Documents/NLP_problem/text.txt') as f:
-    text = f.read()
-print(model.get_top_5_categories(text))
+# model = Model('/Users/jitcad/Documents/NLP_problem/files/model_trained', '/Users/jitcad/Documents/NLP_problem/files/categories.pkl', '/Users/jitcad/Documents/NLP_problem/files/vectorizer.pkl')
+# with open('/Users/jitcad/Documents/NLP_problem/text.txt') as f:
+#     text = f.read()
+# print(model.get_top_5_categories(text))
