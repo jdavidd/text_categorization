@@ -6,9 +6,9 @@ from categorization.model_class import model
 
 
 class Settings(BaseSettings):
-    path_to_model: str = '../categorization/files/model_trained'
-    path_to_categories: str = '../categorization/files/categories.pkl'
-    path_to_vectorizer: str = '../categorization/files/vectorizer.pkl'
+    path_to_model: str = '/code/categorization/files/model_trained'
+    path_to_categories: str = '/code/categorization/files/categories.pkl'
+    path_to_vectorizer: str = '/code/categorization/files/vectorizer.pkl'
 
 class NewsArticle(BaseModel):
     text: str

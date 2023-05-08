@@ -1,5 +1,5 @@
 
-# from multilabel_knn import multilabel_knn, binom_multilabel_kNN, evaluation
+from categorization.multilabel_knn.multilabel_knn import multilabel_knn, binom_multilabel_kNN, evaluation
 import joblib
 from sklearn.metrics import hamming_loss
 import pickle
@@ -9,6 +9,7 @@ from nltk.stem import WordNetLemmatizer
 from nltk import word_tokenize
 import re
 import string
+import os
 
 class ModelCategorization:
     def __init__(self, path_to_model, path_to_categories, path_to_vectorizer):
@@ -21,6 +22,7 @@ class ModelCategorization:
         self.instantiate_model()
     
     def instantiate_model(self):
+        print(os.getcwd())
         self.model = joblib.load(self.path_to_model)
         self.categories = pickle.load(open(self.path_to_categories, 'rb'))
         self.vectorizer = joblib.load(self.path_to_vectorizer)

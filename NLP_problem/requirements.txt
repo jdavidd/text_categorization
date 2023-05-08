@@ -4,3 +4,6 @@ pydantic>=1.8.0
 joblib>=1.2
 scikit-learn==1.2.2
 nltk==3.8.1
+numba
+scipy
+faiss-cpu
