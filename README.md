@@ -1,4 +1,4 @@
-I dont know exactly why this command from dockerfile doenst work:
+Run the container
 
 ```
 RUN python /code/categorization/multilabel_knn/setup.py install
